@@ -30,21 +30,21 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 staging_events_table_create= ("""
     CREATE TABLE IF NOT EXISTS staging_events (
         artist        VARCHAR,
-        auth          VARCHAR NOT NULL,
+        auth          VARCHAR,
         firstname     VARCHAR,
         gender        CHAR(1),
         iteminsession INT,
         lastName      VARCHAR,
         length        FLOAT,
-        level         VARCHAR NOT NULL,
+        level         VARCHAR,
         location      VARCHAR,
-        method        VARCHAR NOT NULL,
-        page          VARCHAR NOT NULL,
+        method        VARCHAR,
+        page          VARCHAR,
         registration  BIGINT,
         sessionid     INT,
         song          VARCHAR,
-        status        INT NOT NULL,
-        ts            BIGINT NOT NULL,
+        status        INT,
+        ts            BIGINT,
         useragent     VARCHAR,
         userid        INT 
     )       
@@ -53,16 +53,16 @@ staging_events_table_create= ("""
 # SQL Statement to create staging table(staging_songs) if not exists with right datatype and conditions.
 staging_songs_table_create = ("""
     CREATE TABLE IF NOT EXISTS staging_songs (
-        num_songs        INT NOT NULL,
-        artist_id        VARCHAR NOT NULL,
+        num_songs        INT,
+        artist_id        VARCHAR,
         artist_latitude  VARCHAR,
         artist_longitude VARCHAR,
         artist_location  VARCHAR,
-        artist_name      VARCHAR NOT NULL,
-        song_id          VARCHAR NOT NULL,
-        title            VARCHAR NOT NULL,
-        duration         FLOAT NOT NULL,
-        year             INT NOT NULL
+        artist_name      VARCHAR,
+        song_id          VARCHAR,
+        title            VARCHAR,
+        duration         FLOAT,
+        year             INT
         )    
 """)
 
@@ -70,7 +70,7 @@ staging_songs_table_create = ("""
 # ALso used KEY distribution style and the key identified is song_id
 songplay_table_create = ("""
     CREATE TABLE IF NOT EXISTS songplays (
-        songplay_id  INT IDENTITY(1,1) sortkey, 
+        songplay_id  INT IDENTITY(1,1) Primary key sortkey, 
         start_time   BIGINT, 
         user_id      INT NOT NULL, 
         level        VARCHAR, 
@@ -119,12 +119,12 @@ artist_table_create = ("""
 time_table_create = ("""
     CREATE TABLE IF NOT EXISTS time (
         start_time BIGINT Primary key sortkey, 
-        hour       INT, 
-        day        INT, 
-        week       INT,
-        month      INT, 
-        year       INT,
-        weekday    INT
+        hour       INT NOt NULL, 
+        day        INT NOt NULL, 
+        week       INT NOt NULL,
+        month      INT NOt NULL, 
+        year       INT NOt NULL,
+        weekday    INT NOt NULL
     )diststyle all;
 """)
 

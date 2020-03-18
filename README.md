@@ -2,6 +2,10 @@ Summary:
 ========
 A music streaming startup, Sparkify wants to build datawarehouse and ETL pipelines in AWS redshift database.
 
+ER Diagram:
+===========
+![ER Diagram] (https://github.com/Dinesh-Sankaran/P3-Cloud-DWH-S1/blob/master/images/ER%20Diagram.png)
+
 Source Files:
 =============
 This project use source as two json file which resides in AWS S3 bucket
