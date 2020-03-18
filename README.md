@@ -4,7 +4,7 @@ A music streaming startup, Sparkify wants to build datawarehouse and ETL pipelin
 
 ER Diagram:
 ===========
-![ER Diagram] (https://github.com/Dinesh-Sankaran/P3-Cloud-DWH-S1/blob/master/images/ER%20Diagram.png)
+![ER Diagram](https://raw.githubusercontent.com/Dinesh-Sankaran/P3-Cloud-DWH-S1/master/images/ER%20Diagram.png)
 
 Source Files:
 =============
