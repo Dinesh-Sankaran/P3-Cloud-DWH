@@ -55,8 +55,8 @@ staging_songs_table_create = ("""
     CREATE TABLE IF NOT EXISTS staging_songs (
         num_songs        INT,
         artist_id        VARCHAR,
-        artist_latitude  VARCHAR,
-        artist_longitude VARCHAR,
+        artist_latitude  FLOAT,
+        artist_longitude FLOAT,
         artist_location  VARCHAR,
         artist_name      VARCHAR,
         song_id          VARCHAR,
@@ -71,12 +71,12 @@ staging_songs_table_create = ("""
 songplay_table_create = ("""
     CREATE TABLE IF NOT EXISTS songplays (
         songplay_id  INT IDENTITY(1,1) Primary key sortkey, 
-        start_time   BIGINT, 
+        start_time   BIGINT NOT NULL, 
         user_id      INT NOT NULL, 
         level        VARCHAR, 
-        song_id      VARCHAR distkey, 
-        artist_id    VARCHAR, 
-        session_id   VARCHAR, 
+        song_id      VARCHAR NOT NULL distkey, 
+        artist_id    VARCHAR NOT NULL, 
+        session_id   VARCHAR NOT NULL, 
         location     VARCHAR, 
         user_agent   VARCHAR
     )    
@@ -107,11 +107,11 @@ song_table_create = ("""
 # SQL Statement to create dim tale(artists) with right datatype and conditions.Also distibution style identified as ALL
 artist_table_create = ("""
     CREATE TABLE IF NOT EXISTS artists (
-        artist_id VARCHAR NOT NULL Primary key sortkey, 
+        artist_id VARCHAR Primary key sortkey, 
         name      VARCHAR NOT NULL, 
         location  VARCHAR,
-        latitude  VARCHAR, 
-        longitude VARCHAR
+        latitude  FLOAT, 
+        longitude FLOAT
     )diststyle all;
 """)
 
